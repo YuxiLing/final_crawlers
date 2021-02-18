@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 import requests
 
 import dateutil.parser as dparser
+import datetime
 
 import sys
 
@@ -74,6 +75,7 @@ class ChromeExtensions(scrapy.Spider):
             user_numbers = re.findall("[-+]?\d*\,?\d+|\d+", each_extension[23])
             details_link = each_extension[37]
             introduction=each_extension[6]
+            record_time=datetime.datetime.now()
             if details_link is not None:
                 # details_link = response.urljoin(details_link)
                 r = requests.get(details_link)
@@ -94,7 +96,8 @@ class ChromeExtensions(scrapy.Spider):
                 'user_numbers': user_numbers[0],
                 'creator': creator,
                 'last_updated': formated_last_updated.strftime('%Y-%m-%d 00:00:00'),
-                'introduction':introduction
+                'introduction':introduction,
+                'record_time':record_time
             }
 
             list_crawled_ext.append(ext)

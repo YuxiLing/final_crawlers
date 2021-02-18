@@ -13,7 +13,7 @@ def crawler_start(completed_count):
 
     browser='firefox'
     log_file='log/firefox_log.txt'
-    csv_columns = ['platform', 'id', 'download_link','key','name', 'rating', 'user_numbers', 'creator', 'last_updated', 'reviews','introduction']
+    csv_columns = ['platform', 'id', 'download_link','key','name', 'rating', 'user_numbers', 'creator', 'last_updated', 'record_time','reviews','introduction']
     name_exported_file = 'data/firefox/full_list/firefox_ext_data_[%s].json' % completed_count
     name_exported_file_after_running_bot = 'data/firefox/full_list/firefox_ext_data_[%s]' % completed_count
     dirpath = os.path.dirname(os.path.abspath(__file__))
@@ -81,9 +81,11 @@ def crawler_start(completed_count):
     interval=28800
     completed_count = completed_count+1
     timer = Timer(interval,crawler_start,(completed_count,))
+    print("start the timer", file=open(log_file, "a"))
     timer.start()
+    print("timer has been started", file=open(log_file, "a"))
     
 
 if __name__=='__main__':
-    completed_count=0
+    completed_count=1
     crawler_start(completed_count)

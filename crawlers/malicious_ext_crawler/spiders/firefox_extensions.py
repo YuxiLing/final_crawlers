@@ -82,6 +82,7 @@ class FirefoxExtensionsMeta(scrapy.Spider):
         #example link: https://addons.mozilla.org/firefox/downloads/file/3692087/cuidaelrut-2.0.2-an+fx.xpi
         id=download_link.split('/')[6]
         
+        record_time=datetime.datetime.now()
         introduction=response.css('div.AddonDescription-contents::text').get()
         if introduction is None:
             introduction=''
@@ -98,7 +99,8 @@ class FirefoxExtensionsMeta(scrapy.Spider):
             "creator": creator,
             "last_updated": formated_last_updated,
             "reviews_list": reviews_list,
-            "introduction":introduction
+            "introduction":introduction,
+            'record_time':record_time
         }
 
         # PS: Not every extension has reviews
@@ -120,6 +122,7 @@ class FirefoxExtensionsMeta(scrapy.Spider):
                 'creator': previous_data["creator"],
                 'last_updated': previous_data["last_updated"],
                 'introduction':previous_data['introduction'],
+                'record_time':previous_data['record_time'],
                 'reviews': [] #as a empty list if there is no valid reviews
 
             }
@@ -158,6 +161,7 @@ class FirefoxExtensionsMeta(scrapy.Spider):
                 'creator': previous_data["creator"],
                 'last_updated': previous_data["last_updated"],
                 'introduction':previous_data['introduction'],
+                'record_time':previous_data['record_time'],
                 'reviews': previous_data["reviews_list"] #as a empty list if there is no valid reviews
             }
 

@@ -129,7 +129,7 @@ class OperaExtensionsMeta(scrapy.Spider):
         #         month_num=list(calendar.month_abbr).index(date_list[0])
         #         formated_last_updated='%s-%s-%s' % (date_list[2],month_num,date_list[1])
 
-
+        record_time=datetime.datetime.now()
 
         # download_url = response.css(
         #     'a.btn-install.btn-with-plus::attr(href)').get()
@@ -154,5 +154,6 @@ class OperaExtensionsMeta(scrapy.Spider):
             'introduction':'',
             'last_updated': formated_last_updated,
             'introduction':introduction,
+            'record_time':record_time,
             'reviews': []  # as a empty list if there is no valid reviews
         }

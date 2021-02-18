@@ -13,7 +13,7 @@ def crawler_start(completed_count):
 
     browser='opera'
     log_file='log/opera_log.txt'
-    csv_columns = ['platform', 'id', 'download_link','key','name', 'rating', 'user_numbers', 'creator', 'last_updated', 'reviews','introduction']
+    csv_columns = ['platform', 'id', 'download_link','key','name', 'rating', 'user_numbers', 'creator', 'last_updated', 'reviews','introduction','record_time']
 
     name_exported_file = 'data/opera/full_list/opera_ext_data_[%s].json' % completed_count
     name_exported_file_after_running_bot = 'data/opera/full_list/opera_ext_data_[%s]' % completed_count
@@ -86,5 +86,5 @@ def crawler_start(completed_count):
     
 
 if __name__=='__main__':
-    completed_count=0
+    completed_count=1
     crawler_start(completed_count)

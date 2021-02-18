@@ -13,7 +13,7 @@ def crawler_start(completed_count):
 
     browser='chrome'
     log_file='log/chrome_log.txt'
-    csv_columns = ['platform', 'id', 'key','name', 'rating', 'user_numbers', 'creator', 'last_updated','introduction']
+    csv_columns = ['platform', 'id', 'key','name', 'rating', 'user_numbers', 'creator', 'last_updated','introduction','record_time']
     dirpath = os.path.dirname(os.path.abspath(__file__))
     sys.path.append(dirpath)
     os.chdir(dirpath)
@@ -88,6 +88,6 @@ def crawler_start(completed_count):
     
 
 if __name__=='__main__':
-    completed_count=0
+    completed_count=1
     crawler_start(completed_count)
 
