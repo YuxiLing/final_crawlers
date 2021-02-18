@@ -6,7 +6,8 @@ import re
 
 import csv
 import codecs
-from datetime import datetime
+import datetime
+
 import dateutil.parser as dparser
 
 
