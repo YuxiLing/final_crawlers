@@ -1,4 +1,0 @@
-+++++++++++++++++++++++++++++++++++++++++++++++++
-Started program at 2021-02-17 15:20:34.221808
-And completed_count= 0
-*Bot is working....
