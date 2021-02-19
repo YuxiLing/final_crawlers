@@ -51,7 +51,7 @@ def handle_missed_list(missed_item, missed_file):
     for item in missed_item:
         item["missed_date"] = current_time.strftime("%Y-%m-%d %H:%M:%S")
 
-    if 0 != os.path.getsize(missed_file):
+    if os.path.exists(missed_file):
         with open(missed_file, 'r') as json_file:
             missed_list = json.load(json_file)
         for i in missed_item:
