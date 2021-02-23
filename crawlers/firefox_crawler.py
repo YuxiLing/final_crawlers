@@ -87,5 +87,5 @@ def crawler_start(completed_count):
     
 
 if __name__=='__main__':
-    completed_count=1
+    completed_count=2
     crawler_start(completed_count)

@@ -180,13 +180,13 @@ def handleOriginResult(id, res_json, src_folder, malicious_folder,count,browser,
     return tmp_json
 
 
-def getAnalysisResult(result_id_list, origin_result_path):
+def getAnalysisResult(result_id_list, origin_result_path,log_file):
     apikey = '787cef5ac6d5f3fdeacd068c97180caa26c89ff69aee1c2b012a2ace62e993b9'
     myheaders = {
         'x-apikey': apikey
     }
 
-    print("start to get analysis result...")
+    print("start to get analysis result...",file=open(log_file,'a'))
     for i in result_id_list:
         theID = i.strip('\n')
         res_url = "https://www.virustotal.com/api/v3/analyses/%s" % theID
@@ -202,6 +202,7 @@ def getAnalysisResult(result_id_list, origin_result_path):
         # print("wait...")
         # time.sleep(10)
 
+    print("finished getting analysis result",file=open(log_file,'a'))
 
 def getResultID(output_file):
     result_id_list = []
@@ -237,7 +238,7 @@ def startScan(count,browser):
     scanByDir(src_folder, dst_folder, output_file, move,log_file)
 
     result_id_list = getResultID(output_file)
-    getAnalysisResult(result_id_list, origin_result_path)
+    getAnalysisResult(result_id_list, origin_result_path,log_file)
 
     origin_list = []
     if os.path.exists(origin_result_path):
@@ -256,6 +257,8 @@ def startScan(count,browser):
 
     with open(result_file, 'w') as f:
         json.dump(handled_result, f)
+    
+    print("scan_ext_file finished",file=open(log_file,'a'))
 
 if __name__ == "__main__":
     startScan(0,'chrome')
