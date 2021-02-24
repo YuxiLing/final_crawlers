@@ -7,6 +7,7 @@ import subprocess
 import get_code_find_missed
 import scan_ext_file
 import data_utils
+import time
 
 ############################### RUN BOT
 def crawler_start(completed_count):

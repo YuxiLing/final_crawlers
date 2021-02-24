@@ -1,4 +1,5 @@
 import datetime  
+import time
 import os
 import sys
 from threading import Timer
@@ -90,7 +91,7 @@ if __name__=='__main__':
     log_file='log/opera_log.txt'
     interval=3 # one hour
     while True:
-        crawler_start(completed_count)
+        # crawler_start(completed_count)
         completed_count=completed_count+1
         for i in range(8):
             print("Have slept one hour, now is:", datetime.datetime.now(), file=open(log_file, "a"))
