@@ -78,14 +78,21 @@ def crawler_start(completed_count):
 
     # start a loop runs the program every 8 hours
     # 8 hours
-    interval=28800
-    completed_count = completed_count+1
-    timer = Timer(interval,crawler_start,(completed_count,))
-    print("start the timer", file=open(log_file, "a"))
-    timer.start()
-    print("timer has been started", file=open(log_file, "a"))
+    # interval=28800
+    # completed_count = completed_count+1
+    # timer = Timer(interval,crawler_start,(completed_count,))
+    # print("start the timer", file=open(log_file, "a"))
+    # timer.start()
+    # print("timer has been started", file=open(log_file, "a"))
     
 
 if __name__=='__main__':
-    completed_count=2
-    crawler_start(completed_count)
+    completed_count=3
+    log_file='log/firefox_log.txt'
+    interval=3600 # one hour
+    while True:
+        crawler_start(completed_count)
+        completed_count=completed_count+1
+        for i in range(8):
+            print("Have slept one hour, now is:", datetime.datetime.now(), file=open(log_file, "a"))
+            time.sleep(interval)
