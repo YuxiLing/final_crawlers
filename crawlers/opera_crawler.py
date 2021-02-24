@@ -79,12 +79,20 @@ def crawler_start(completed_count):
 
     # start a loop runs the program every 8 hours
     # 8 hours
-    interval=28800
-    completed_count = completed_count+1
-    timer = Timer(interval,crawler_start,(completed_count,))
-    timer.start()
+    # interval=28800
+    # completed_count = completed_count+1
+    # timer = Timer(interval,crawler_start,(completed_count,))
+    # timer.start()
     
 
 if __name__=='__main__':
     completed_count=1
-    crawler_start(completed_count)
+    log_file='log/opera_log.txt'
+    interval=3 # one hour
+    while True:
+        crawler_start(completed_count)
+        completed_count=completed_count+1
+        for i in range(8):
+            print("Have slept one hour, now is:", datetime.datetime.now(), file=open(log_file, "a"))
+            time.sleep(interval)
+        
