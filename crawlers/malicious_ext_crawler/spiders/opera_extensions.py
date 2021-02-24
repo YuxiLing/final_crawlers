@@ -6,7 +6,7 @@ import re
 
 import csv
 import codecs
-from datetime import datetime
+import datetime
 import dateutil.parser as dparser
 import calendar
 
@@ -129,7 +129,7 @@ class OperaExtensionsMeta(scrapy.Spider):
         #         month_num=list(calendar.month_abbr).index(date_list[0])
         #         formated_last_updated='%s-%s-%s' % (date_list[2],month_num,date_list[1])
 
-        record_time=datetime.datetime.now()
+        record_time=str(datetime.datetime.now())
 
         # download_url = response.css(
         #     'a.btn-install.btn-with-plus::attr(href)').get()
