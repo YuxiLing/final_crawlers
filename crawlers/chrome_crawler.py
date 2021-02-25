@@ -89,9 +89,9 @@ def crawler_start(completed_count):
     
 
 if __name__=='__main__':
-    completed_count=2
+    completed_count=5
     log_file='log/chrome_log.txt'
-    interval=3 # one hour
+    interval=3600 # one hour
     while True:
         crawler_start(completed_count)
         completed_count=completed_count+1
