@@ -14,7 +14,7 @@ def crawler_start(completed_count):
 
     browser='firefox'
     log_file='log/firefox_log.txt'
-    csv_columns = ['platform', 'id', 'download_link','key','name', 'rating', 'user_numbers', 'creator', 'last_updated', 'record_time','reviews','introduction']
+    csv_columns = ['platform', 'id', 'num','download_link','key','name', 'rating', 'user_numbers', 'creator', 'last_updated', 'record_time','reviews','introduction']
     name_exported_file = 'data/firefox/full_list/firefox_ext_data_[%s].json' % completed_count
     name_exported_file_after_running_bot = 'data/firefox/full_list/firefox_ext_data_[%s]' % completed_count
     dirpath = os.path.dirname(os.path.abspath(__file__))
