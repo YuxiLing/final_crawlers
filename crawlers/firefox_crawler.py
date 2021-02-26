@@ -88,7 +88,7 @@ def crawler_start(completed_count):
     
 
 if __name__=='__main__':
-    completed_count=3
+    completed_count=6
     log_file='log/firefox_log.txt'
     interval=3600 # one hour
     while True:
