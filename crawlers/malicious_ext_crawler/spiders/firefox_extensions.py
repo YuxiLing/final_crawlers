@@ -91,7 +91,7 @@ class FirefoxExtensionsMeta(scrapy.Spider):
         # store previous parsed data as a dictionary
         previous_data = {
             
-            "id": id,
+            "id": key,
             "download_link":download_link,
             "key": key,
             "name": name,
